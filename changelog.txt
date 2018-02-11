@@ -1,0 +1,55 @@
+1.0.0
+ - Initial release.
+ - Added MIT license.
+ 
+1.0.1
+ - General code cleanup.
+ - Fixed nonce incrementing problem.
+ - Fixed API calls which required user authentication.
+ 
+1.0.2
+ - Added API test script (test.java).
+ 
+1.0.3
+ - Added public change log (changelog.txt).
+ - Moved and updated license to text file (LICENSE.txt).
+ 
+1.0.4
+ - Updated API methods to catch errors.
+ - Updated the API test to have a version number and added license.
+ - Removed the API test file to reflect API methods catching errors. 
+
+1.0.5
+ - Added method comments. 
+ 
+1.0.6
+ - Added README.md
+ - Changed 'couple' to 'pair' to more closely resemble Forex terminology.
+ - Updated test script comments to more closely mirror the function comments. 
+ - Moved LICENSE.txt outside the src folder
+ - Moved changelog.txt outside the src folder
+
+1.0.7
+ - Changed objects private entities to protected for outside API integration.
+ - Updated code format and structure for Java 7 Guidelines.
+
+1.0.8
+ - Fixing nonce problems
+
+1.0.9
+ - Fixed problem sending request to API if Cloudflare is active/the API is down.
+
+1.0.10
+ - Fixed problem where all authenticated methods were being rejected.
+ - Updated code documentation and format
+ - Updated README
+ - Replaced 'tab' characters with 4 'spaces', for a more uniform IDE experience.
+
+2.0.0
+ - Refactoring code for Google code standards.
+ - Fixing issue with cancelOrder() and the overflowing the integer data type.
+ - Added API call for GHash.io account hash rates (hashrate).
+ - Added API call for GHash.io worker hash rates (workers).
+ - Added API call for Cex.io currency pair check (last_price).
+ - Added API call for Cex.io pair converter (convert).
+ - Added API call for Cex.io chart data (price_stats).
