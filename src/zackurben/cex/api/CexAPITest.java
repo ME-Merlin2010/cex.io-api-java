@@ -18,8 +18,8 @@ class CexAPITest {
 	@BeforeEach
 	void setUp() throws Exception {
 
-		String apiKey = "sD9I12jMF5aZkLdQnsp4DsxeY";
-		String apiSecret = "x7iyNntKLRTrzy3v4Qz81M2mx8";
+		String apiKey = "<api-key>";
+		String apiSecret = "<api-secret>";
 
 		cexApi = new CexAPI(username, apiKey, apiSecret);
 
@@ -67,7 +67,7 @@ class CexAPITest {
 	@Test
 	void testTradeHistory() {
 		// Fetch the trade history data, for the currency pair.
-		assertThat("Testing method: tradeHistory(\\\"ZEC/EUR\\\")", cexApi.tradeHistory("ZEC/EUR", 1),
+		assertThat("Testing method: tradeHistory(\\\"XLM/EUR\\\")", cexApi.tradeHistory("XLM/EUR", 1),
 				containsString("price"));
 	}
 
@@ -80,20 +80,20 @@ class CexAPITest {
 		assertThat("Testing method: balance()", cexApi.balance(), anyOf(containsString("username"), containsString(username)));
 
 		// Place an order, for the currency pair, with the given amount and price.
-		String orderResult = cexApi.placeOrder("ZEC/EUR", "sell", 0.07f, 4000.00000000f);
+		String orderResult = cexApi.placeOrder("XLM/EUR", "sell", 80f, 2.00000000f);
 		System.out.println(orderResult + "\n");
-		assertThat("Testing method: placeOrder(\\\"ZEC/EUR\\\")", orderResult, containsString("\"price\":\"4000\""));
+		assertThat("Testing method: placeOrder(\\\"XLM/EUR\\\")", orderResult, containsString("\"price\":\"2\""));
 		
 		// Fetch the account open orders, for the currency pair.
-		assertThat("Testing method: openOrders(\\\"ZEC/EUR\\\")", cexApi.openOrders("ZEC/EUR"),
-				anyOf(containsString("\"type\":\"sell\""), containsString("\"price\":\"4000\"")));
+		assertThat("Testing method: openOrders(\\\"XLM/EUR\\\")", cexApi.openOrders("XLM/EUR"),
+				anyOf(containsString("\"type\":\"sell\""), containsString("\"price\":\"2\"")));
 
 		// Cancel the account order with the given ID.
 		String orderResultId = orderResult.split(",")[1].split(":")[1].split("\"")[1];
 		assertThat("Testing method: cancelOrder(" + orderResult + " with ID: " + orderResultId + ")",
 				cexApi.cancelOrder(orderResultId), is("true"));
-		assertThat("Testing method: openOrders(\\\"ZEC/EUR\\\") - order canceled", cexApi.openOrders("ZEC/EUR"),
-				not(containsString("\"price\":\"4000\"")));
+		assertThat("Testing method: openOrders(\\\"XLM/EUR\\\") - order canceled", cexApi.openOrders("XLM/EUR"),
+				not(containsString("\"price\":\"40000\"")));
 	}
 
 }

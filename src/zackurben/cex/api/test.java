@@ -26,8 +26,8 @@ public class test {
 	public static void main(String[] args) {
 
 		String username = "up114757661";
-		String apiKey = "CGEjFXMqfK1aynuZrktsClJEYNY";
-		String apiSecret = "ALT40p2R2I9pdnBWVlfWrVP37oQ";
+		String apiKey = "<YourAPIKey>";
+		String apiSecret = "<YourAPISecret>";
 
 		CexAPI test = new CexAPI(username, apiKey, apiSecret);
 
